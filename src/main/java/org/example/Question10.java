@@ -1,3 +1,7 @@
+/**
+ *  Your Name: Ciaran Kennedy
+ *  Class Group: GD2
+ */
 package org.example;
 
 public class Question10 {

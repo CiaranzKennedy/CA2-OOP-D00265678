@@ -3,8 +3,8 @@ package org.example;
 import java.io.FileNotFoundException;
 
 /**
- *  Name:
- *  Class Group:
+ *  Your Name: Ciaran Kennedy
+ *  Class Group: GD2
  */
 public class Question5 {    //Java Identifier Count (Map)
 
