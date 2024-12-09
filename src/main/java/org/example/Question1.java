@@ -154,48 +154,37 @@ class ContainerManager {
         return new ArrayList<>(containers);
     }
 }
-class JerrysBox implements IMeasurableContainer {
-    private double length, width, depth, weight;
-
-    public JerrysBox(double length, double width, double depth, double weight) {
-        this.length = length;
-        this.width = width;
-        this.depth = depth;
-        this.weight = weight;
-    }
-
-    @Override
-    public double weight() {
-        return weight;
-    }
-
-    @Override
-    public double rectangularVolume() {
-        return length * width * depth;
-    }
-
-    // Getter methods
-    public double getLength() {
-        return length;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getDepth() {
-        return depth;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-}
 public class Question1 {    // Interfaces
     public static void main(String[] args) {
         System.out.println("Question 1");
         // create container here...
         ContainerManager manager = new ContainerManager();
+        Box box = new Box(2.0, 3.0, 1.0,1.0);
+        Cylinder cylinder = new Cylinder(4.0, 1.0, 1.0);
+        Pyramid pyramid = new Pyramid(4.0, 3.0);
+
+        manager.add(box);
+        manager.add(cylinder);
+        manager.add(pyramid);
+
+        System.out.println("Total weight: " + manager.totalWeight());
+        System.out.println("Total rectangular volume: " + manager.totalRectangularVolume());
+
+        List<IMeasurableContainer> allContainers = manager.getAllContainers();
+        for (IMeasurableContainer container : allContainers) {
+            if(container instanceof Box) {
+                Box box1 = (Box) container;
+                System.out.println("Box Length: " + box1.getLength()+", Width:"+ box1.getWidth() + ", Depth:"+ box1.getDepth() + ", Weight:"+ box1.getWeight());
+            }
+            if(container instanceof Cylinder) {
+                Cylinder cylinder2 = (Cylinder) container;
+                System.out.println("Cylinder: " + cylinder2.getHeight()+", Diameter:"+ cylinder2.getDiameter() + ", Weight:"+ cylinder2.getWeight());
+            }
+            if(container instanceof Pyramid) {
+                Pyramid pyramid3 = (Pyramid) container;
+                System.out.println("Pyramid: " + pyramid3.getSideLength() + ", Weight:"+ pyramid3.getWeight());
+            }
+        }
     }
 }
 
